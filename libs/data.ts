@@ -12,7 +12,7 @@ export async function countTodoStatus() {
   });
   return result.reduce(
     (acc, el) => {
-      if (isCountStatus(el.status)) {
+      if (isCountStatusKey(el.status)) {
         acc[el.status] = el._count.status;
       }
       return acc;
@@ -26,10 +26,21 @@ type CountStatus = {
   pending: number;
 };
 
-function isCountStatus(value: unknown): value is keyof CountStatus {
+function isCountStatusKey(value: unknown): value is keyof CountStatus {
   return value === 'completed' || value === 'pending';
 }
 
-export async function fetchTodo() {
+export async function fetchTodo(search: string) {
+  if (search) {
+    // SELECT * FROM todo WHERE title LIKE %search%
+    return prisma.todo.findMany({
+      where: { title: { contains: search, mode: 'insensitive' } },
+      orderBy: { createdAt: 'desc' }
+    });
+  }
   return prisma.todo.findMany({ orderBy: { createdAt: 'desc' } });
+}
+
+export async function fetchTodoById(id: string) {
+  return prisma.todo.findUnique({ where: { id } });
 }

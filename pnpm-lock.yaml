@@ -11,6 +11,9 @@ importers:
       '@prisma/client':
         specifier: 6.7.0
         version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
+      lucide-react:
+        specifier: ^0.509.0
+        version: 0.509.0(react@19.1.0)
       next:
         specifier: 15.3.2
         version: 15.3.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -20,6 +23,12 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      use-debounce:
+        specifier: ^10.0.4
+        version: 10.0.4(react@19.1.0)
+      zod:
+        specifier: ^3.24.4
+        version: 3.24.4
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -1620,6 +1629,11 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
+  lucide-react@0.509.0:
+    resolution: {integrity: sha512-xCJHn6Uh5qF6PGml25vveCTrHJZcqS1G1MVzWZK54ZQsOiCVJk4fwY3oyo5EXS2S+aqvTpWYIfJN+PesJ0quxg==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
@@ -2138,6 +2152,12 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  use-debounce@10.0.4:
+    resolution: {integrity: sha512-6Cf7Yr7Wk7Kdv77nnJMf6de4HuDE4dTxKij+RqE9rufDsI6zsbjyAxcH5y2ueJCQAnfgKbzXbZHYlkFwmBlWkw==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      react: '*'
 
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
@@ -3844,6 +3864,10 @@ snapshots:
     dependencies:
       js-tokens: 4.0.0
 
+  lucide-react@0.509.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
   magic-string@0.30.17:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -4466,6 +4490,10 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  use-debounce@10.0.4(react@19.1.0):
+    dependencies:
+      react: 19.1.0
 
   vary@1.1.2: {}
 

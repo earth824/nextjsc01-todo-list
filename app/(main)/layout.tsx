@@ -1,4 +1,3 @@
-import RootLayout from '@/app/layout';
 import Header from '@/components/layouts/header';
 import { ReactNode } from 'react';
 
