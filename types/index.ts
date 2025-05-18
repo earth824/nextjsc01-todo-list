@@ -6,3 +6,5 @@ export type FormState = {
   message: string;
   error?: z.inferFlattenedErrors<typeof todoSchema>['fieldErrors'];
 };
+
+export type TodoFormInput = z.infer<typeof todoSchema>;
