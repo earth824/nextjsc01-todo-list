@@ -25,6 +25,7 @@ export async function createTodo(_: FormState, formData: FormData): Promise<Form
     await new Promise(resolve => setTimeout(() => resolve(''), 3000));
     const data = todoSchema.parse(rawData);
     await prisma.todo.create({ data });
+    // revalidatePath('/dashboard');
     redirect('/todo');
   } catch (error) {
     console.log(error);
@@ -64,7 +65,7 @@ export async function updateTodo(id: string, _: unknown, formData: FormData) {
 
 export async function updateTodoWithHookForm(id: string, rawData: TodoFormInput) {
   try {
-    const { success, data, error } = todoSchema.safeParse({});
+    const { success, data, error } = todoSchema.safeParse(rawData);
 
     if (!success) {
       return { error: error.flatten().fieldErrors, message: 'validation error' };

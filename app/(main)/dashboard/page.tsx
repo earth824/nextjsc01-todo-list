@@ -19,6 +19,7 @@ export const revalidate = 0;
 
 export default function DashboardPage() {
   // #3 unstable_noStore()
+  console.log('Dashboard');
 
   return (
     <>

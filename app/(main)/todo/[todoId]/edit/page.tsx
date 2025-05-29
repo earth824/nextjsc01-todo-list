@@ -1,7 +1,16 @@
 import EditForm from '@/components/todo/edit-form';
 import EditHookForm from '@/components/todo/edit-hook-form';
 import { fetchTodoById } from '@/libs/data';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+export async function generateMetadata({ params }: EditTodoPageProps): Promise<Metadata> {
+  const { todoId } = await params;
+  const todo = await fetchTodoById(todoId);
+  return {
+    title: todo?.title ?? '404'
+  };
+}
 
 type EditTodoPageProps = {
   params: Promise<{ todoId: string }>;

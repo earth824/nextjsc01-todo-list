@@ -2,6 +2,7 @@ import { fetchLatestTodo } from '@/libs/data';
 
 export default async function LatestTodo() {
   const latestTodos = await fetchLatestTodo();
+
   return (
     <div className="bg-gray-50 rounded-lg p-4">
       {latestTodos.map(el => (
